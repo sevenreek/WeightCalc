@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/fontBlack"
+    >     <!-- ripple color -->
+    <item>
+        <selector>
+            <item android:drawable="@drawable/checkmark_weak"
+                android:state_activated="false">
+                <color android:color="#adebad"/>
+            </item>
+            <item android:drawable="@drawable/checkmark"
+                android:state_activated="true">
+                <color android:color="#33cc33"/>
+            </item>
+        </selector>
+    </item>
+</ripple>

@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">SetLogger</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_calculator" translatable="false">Weight Calculator</string>
+    <string name="start_exercise">Start New Exercise</string>
+    <string name="accept_button" translatable="false">Set Weight</string>
+    <string name="menu_createprogram">Routines</string>
+    <string name="weight_unit_kg" translatable="false">kg</string>
+    <string name="weight_unit_lb" translatable="false">lb</string>
+    <string name="days_amount_plural">days</string>
+    <string name="days_amount_singular">day</string>
+    <string name="sets_amount_plural">sets</string>
+    <string name="sets_amount_singular">set</string>
+    <string name="exercises_amount_plural">exercises</string>
+    <string name="exercises_amount_singular">exercise</string>
+    <string name="no_exercises_added_to_day">Add an exercise</string>
+    <string name="rest_finished_toast">Rest finished!</string>
+    <string name="unfinished_sets_popup_title">Finish exercise?</string>
+    <string name="unfinished_sets_popup_message">There are still unfinished sets. Do you want to end today\'s exercise?</string>
+    <string name="continue_training">Continue Exercise</string>
+    <string name="support_developer">Support the developer</string>
+    <string name="start_routine">Start routine</string>
+    <string name="logs">Logs</string>
+    <string name="exercises">Exercises</string>
+    <string name="quickstart">Quickstart</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="interstitial_ad">Interstitial</string>
+    <string name="banner_ad">Banner</string>
+    <string name="settings_localiation">Localization</string>
+    <string name="setting_default_values">Default values</string>
+    <string name="settings_useimperial">Use imperial system(lbs)</string>
+    <string name="settings_set_to_record">Set starting weight in sets to max. rep</string>
+    <string name="settings_ads">Ads</string>
+
+
+</resources>

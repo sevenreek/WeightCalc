@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+    <TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/setInformationContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/expanded_weightButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+
+            <EditText
+                android:id="@+id/expanded_weight"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:gravity="center"
+                android:text="50kg"
+                android:textAlignment="center"
+                android:selectAllOnFocus="true"
+                android:textSize="36sp" />
+
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:alpha="0.035"
+                app:srcCompat="@drawable/clock_icon" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/expanded_repsButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:alpha="0.035"
+                app:srcCompat="@drawable/hashtag_icon" />
+
+
+            <EditText
+                android:id="@+id/expanded_repsToDo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:layout_weight="1"
+                android:selectAllOnFocus="true"
+                android:text="/12"
+                android:textAlignment="center"
+                android:textSize="36sp" />
+
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/checkFinished"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:alpha="0.4"
+            android:background="@drawable/checkmark_ripple"
+            android:clickable="true"
+            android:cropToPadding="false"
+            android:gravity="center"
+            android:scaleType="fitCenter" />
+
+    </TableRow>
+

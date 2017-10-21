@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SetLogger</string>
+    <string name="action_settings">Ustawienia</string>
+    <string name="days_amount_plural">dni</string>
+    <string name="days_amount_singular">dzień</string>
+    <string name="exercises_amount_plural">ćwiczeń</string>
+    <string name="exercises_amount_singular">ćwiczenie</string>
+    <string name="menu_calculator"></string>
+    <string name="menu_createprogram">Programy</string>
+    <string name="no_exercises_added_to_day">Dodaj ćwiczenie</string>
+    <string name="rest_finished_toast">Koniec przerwy!</string>
+    <string name="sets_amount_plural">setów</string>
+    <string name="sets_amount_singular">set</string>
+    <string name="start_exercise">Zacznij trening</string>
+    <string name="unfinished_sets_popup_message">Nie wszystkie sety w dzisiejszym treningu zostały ukończone. Czy na pewno chcesz go zakończyć?</string>
+    <string name="unfinished_sets_popup_title">Zakończyć trening?</string>
+    <string name="support_developer">Wesprzyj developera</string>
+    <string name="start_routine">Zacznij program</string>
+    <string name="logs">Dziennik</string>
+    <string name="exercises">Ćwiczenia</string>
+    <string name="quickstart">Szybki start</string>
+    <string name="continue_training">Kontynuuj trening</string>
+    <string name="banner_ad">Banner</string>
+    <string name="interstitial_ad">Przerywnik</string>
+    <string name="settings_localiation">Język</string>
+    <string name="setting_default_values">Domyślne wartości</string>
+    <string name="settings_useimperial">Używaj systemy imperialnego(funty)</string>
+    <string name="settings_set_to_record">Ustaw początkowy ciężar na rekordowy dla ćwiczenia</string>
+    <string name="settings_ads">Reklamy</string>
+</resources>

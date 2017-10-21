@@ -1,0 +1,41 @@
+<Programs tag="preexisitng">
+    <programsList>
+        <Program name ="Debug Program 1">
+            <description>
+                Lorem ipsum... etc
+            </description>
+            <days>
+                <ExerciseDay name="Debug Program Day 1">
+                    <exerciseGroups>
+                        <ExerciseGroup exerciseName="Overhead Press">
+                            <exerciseSets>
+                                <ExerciseSet>
+                                    <restTimeInSeconds>30</restTimeInSeconds>
+                                    <goalReps>8</goalReps>
+                                </ExerciseSet>
+                                <ExerciseSet>
+                                    <restTimeInSeconds>45</restTimeInSeconds>
+                                    <goalReps>10</goalReps>
+                                </ExerciseSet>
+                            </exerciseSets>
+                        </ExerciseGroup>
+                        <ExerciseGroup exerciseName="Leg Press">
+                            <exerciseSets>
+                                <ExerciseSet>
+                                    <restTimeInSeconds>30</restTimeInSeconds>
+                                    <goalReps>8</goalReps>
+                                </ExerciseSet>
+                                <ExerciseSet>
+                                    <restTimeInSeconds>45</restTimeInSeconds>
+                                    <goalReps>10</goalReps>
+                                </ExerciseSet>
+                            </exerciseSets>
+                        </ExerciseGroup>
+                    </exerciseGroups>
+                </ExerciseDay>
+            </days>
+        </Program>
+    </programsList>
+
+
+</Programs>

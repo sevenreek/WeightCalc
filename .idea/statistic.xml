@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Statistic">
+    <option name="excludedDirectories">
+      <list>
+        <option value="$PROJECT_DIR$/build" />
+        <option value="$PROJECT_DIR$/gradle" />
+        <option value="$PROJECT_DIR$/library" />
+        <option value="$PROJECT_DIR$/libs" />
+        <option value="$PROJECT_DIR$/material-calendarview" />
+        <option value="$PROJECT_DIR$/rippledrawablesupport" />
+        <option value="$PROJECT_DIR$/../AndroidProject" />
+        <option value="$PROJECT_DIR$/../Fragments" />
+        <option value="$PROJECT_DIR$/../Projects" />
+      </list>
+    </option>
+  </component>
+</project>

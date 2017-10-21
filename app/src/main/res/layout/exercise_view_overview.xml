@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/overviewSet_width"
+    android:layout_height="160dp"
+    android:background="@drawable/ui_element_bgrnd_9p"
+    android:clickable="true"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/overview_ExerciseName"
+        android:layout_width="168dp"
+        android:layout_height="29dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="6dp"
+        android:text="Squatg"
+        android:textColor="@color/fontBlack"
+        android:textSize="24sp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="@dimen/icon_small_overview"
+        android:layout_height="@dimen/icon_small_overview"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:alpha="0.2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/overview_ExerciseName"
+        app:srcCompat="@drawable/weight_icon" />
+
+    <TextView
+        android:id="@+id/overview_weight"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="7"
+        android:text="40/40/40/40/40/40/40"
+        android:textColor="@color/fontDargGrayDesc"
+        android:textSize="@dimen/overViewFontSize_doubleLine"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toRightOf="@+id/imageView"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/overview_ExerciseName" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="@dimen/icon_small_overview"
+        android:layout_height="@dimen/icon_small_overview"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_weight="1"
+        android:alpha="0.2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/overview_weight"
+        app:srcCompat="@drawable/hashtag_icon" />
+
+    <TextView
+        android:id="@+id/overview_repsAmnt"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_weight="7"
+        android:text="5/5/5/5/5/5/5/5/5/5/6/6/6"
+        android:textColor="@color/fontDargGrayDesc"
+        android:textSize="@dimen/overViewFontSize_doubleLine"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toRightOf="@+id/imageView2"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/overview_weight" />
+
+
+</android.support.constraint.ConstraintLayout>
