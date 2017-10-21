@@ -1,1 +1,1 @@
-include ':app', ':rippledrawablesupport', ':material-calendarview'
+include ':app'

@@ -4,8 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/WeightCalc.iml" filepath="$PROJECT_DIR$/WeightCalc.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/material-calendarview/material-calendarview.iml" filepath="$PROJECT_DIR$/material-calendarview/material-calendarview.iml" />
-      <module fileurl="file://$PROJECT_DIR$/rippledrawablesupport/rippledrawablesupport.iml" filepath="$PROJECT_DIR$/rippledrawablesupport/rippledrawablesupport.iml" />
     </modules>
   </component>
 </project>
