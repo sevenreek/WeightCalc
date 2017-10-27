@@ -3,6 +3,9 @@ package com.devseven.gympack.materialsetlogger;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.animation.RotateAnimation;
 import android.widget.Toast;
 
 import com.devseven.gympack.setlogger.R;
@@ -11,6 +14,8 @@ import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class RoutineListActivity extends AppCompatActivity {
@@ -18,6 +23,7 @@ public class RoutineListActivity extends AppCompatActivity {
     public static final String ROUTINES_DIR = "ROUTINES_DIR";
     public static final String ROUTINES_DETAIL_DIR = "routine_details";
     private File routinesDirectory;
+    RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,19 +44,14 @@ public class RoutineListActivity extends AppCompatActivity {
             Toast.makeText(this, "FATAL ERROR: Cannot load intent/savedInstanceState from context. Please contact the developer with this error.", Toast.LENGTH_LONG).show();
             finish();
         }
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(llm);
         // Foreach routine in directory list programs
-        for(File f:routinesDirectory.listFiles())
-        {
-            Serializer serializer = new Persister();
-        }
-    }
+        RoutineRecycler adapter = new RoutineRecycler(routinesDirectory);
+        recyclerView.setAdapter(adapter);
 
 
-    // A class that contains basic routine data for faster xml deserialization:
-    // - name
-    // - day amount
-    class RoutineSketch {
-        String name;
-        int dayCount;
-    }
+
 }
