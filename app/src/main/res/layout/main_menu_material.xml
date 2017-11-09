@@ -105,7 +105,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
+                        android:background="?selectableItemBackground"
+                        android:clickable="true"
                         android:gravity="right"
+                        android:text="HIDE"
                         android:textColor="#757575"
                         android:textSize="18sp"
                         tools:text="HIDE" />
@@ -124,6 +127,8 @@
                     android:textSize="18sp" />
 
                 <TextView
+                    android:clickable="true"
+                    android:background="?selectableItemBackground"
                     android:id="@+id/newRoutineButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -149,6 +154,7 @@
                     android:textSize="18sp" />
 
                 <TextView
+                    android:background="?selectableItemBackground"
                     android:id="@+id/exampleRoutineButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -212,6 +218,7 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:background="?selectableItemBackground"
                         android:id="@+id/quickstartButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -224,6 +231,7 @@
                         android:textSize="14dp" />
 
                     <TextView
+                        android:background="?selectableItemBackground"
                         android:id="@+id/routinesButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

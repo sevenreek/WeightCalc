@@ -11,9 +11,13 @@
         android:id="@+id/toolbar3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="@color/colorPrimaryDark"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme" />
+
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="56dp" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"

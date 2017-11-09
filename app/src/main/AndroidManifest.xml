@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
-            android:name=".MainActivity"
+            android:name="com.devseven.gympack.materialsetlogger.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
@@ -25,6 +25,9 @@
         </activity>
         <activity
             android:name=".WeightCalculator"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.devseven.gympack.materialsetlogger.ExerciseActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ExerciseActivity"

@@ -3,9 +3,9 @@
     <color name="fontPrimary">#212121</color>
     <color name="fontSecondary">#757575</color>
     <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimaryDark">#303f9f</color>
     <color name="colorPrimaryLight">#C5CAE9</color>
-    <color name="colorAccent">#FF5722</color>
+    <color name="colorAccent">#ff5722</color>
     <color name="iconWhite">#FFFFFF</color>
     <color name="setOverviewGray">#F3F3F3</color>
     <color name="fontBlack">#030303</color>

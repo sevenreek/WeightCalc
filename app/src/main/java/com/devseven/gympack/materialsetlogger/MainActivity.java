@@ -17,16 +17,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.devseven.gympack.setlogger.ExerciseActivity;
-import com.devseven.gympack.setlogger.ExerciseDay;
-import com.devseven.gympack.setlogger.ExercisesListActivity;
+
+import com.devseven.gympack.materialsetlogger.data.ExerciseDay;
 import com.devseven.gympack.setlogger.GlobalSettings;
-import com.devseven.gympack.setlogger.LogsActivity;
-import com.devseven.gympack.setlogger.PickExerciseActivity;
 import com.devseven.gympack.setlogger.R;
 import com.devseven.gympack.setlogger.SettingsActivity;
-import com.devseven.gympack.setlogger.UserSettings;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -42,6 +39,7 @@ public class MainActivity extends AppCompatActivity  {
 
     AdView adView;
     ExerciseDay dayToContinue;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +83,16 @@ public class MainActivity extends AppCompatActivity  {
                 MainActivity.this.startActivity(intent);
             }
         });
+        View quickstartButton = findViewById(R.id.quickstartButton);
+        quickstartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ExerciseActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        });
+
+        /*
         final View pickProgramButton = findViewById(R.id.viewProgramsButton);
         pickProgramButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,7 +127,7 @@ public class MainActivity extends AppCompatActivity  {
             adView.loadAd(new AdRequest.Builder().build());
 
 
-
+    */
 
 
 
@@ -129,6 +137,8 @@ public class MainActivity extends AppCompatActivity  {
     @Override
     public void onResume()
     {
+        super.onResume();
+        /*
         Log.d("CONTINUE","MainActivity.onResume()");
         View quickStart = findViewById(R.id.quickStartButton);
         if(UserSettings.getUserSettings(this).getShowBanner())
@@ -168,7 +178,7 @@ public class MainActivity extends AppCompatActivity  {
                 }
             });
         }
-        super.onResume();
+
     }
     public File DayToContinue()
     {
@@ -183,6 +193,7 @@ public class MainActivity extends AppCompatActivity  {
             }
         }
         return null;
+        */
     }
     public boolean PermissionGranted() {
         int permission_write_external = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
@@ -204,6 +215,7 @@ public class MainActivity extends AppCompatActivity  {
             Log.d(this.toString(), "Permissions granted.");
             return true;
         }
+
     }
     int requestCode = 100;
 
