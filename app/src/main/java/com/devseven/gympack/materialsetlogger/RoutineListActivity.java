@@ -22,9 +22,10 @@ import java.util.List;
 
 public class RoutineListActivity extends AppCompatActivity {
 
-    public static final String ROUTINES_DIR = "ROUTINES_DIR";
-    public static final String ROUTINES_DETAIL_DIR = "routine_details";
-    private File routinesDirectory;
+    public static final String SKETCH_DIR = "SKETCH_DIR";
+    public static final String ROUTINES_DIR = "ROUTINE_DIR";
+    private File sketchDirectory;
+    private File routineDirectory;
     RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +33,9 @@ public class RoutineListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_routine_list);
         Intent intent = getIntent();
         if (intent != null) {
-            routinesDirectory = new File(intent.getStringExtra(ROUTINES_DIR));
+            sketchDirectory = new File(intent.getStringExtra(SKETCH_DIR));
         } else if (savedInstanceState != null) {
-            routinesDirectory = new File(intent.getStringExtra(ROUTINES_DIR));
+            sketchDirectory = new File(intent.getStringExtra(SKETCH_DIR));
         } else {
             // If neither intent nor savedInstanceState is present then clearly something went wrong.
             // The activity cannot progress without the arguments and will be terminated.
@@ -42,10 +43,14 @@ public class RoutineListActivity extends AppCompatActivity {
             finish();
         }
         RoutineSketch sketch = new RoutineSketch("Routine 1", "Test Routine", 3);
+        RoutineSketch sketch1 = new RoutineSketch("Routine 2", "Test Routine", 3);
+        RoutineSketch sketch2 = new RoutineSketch("Routine 3", "Test Routine", 3);
         Serializer serializer = new Persister();
         try {
-            serializer.write(sketch, new File(routinesDirectory, "testsketch.xml"));
-            Log.d("TESTESTEST","\n\n\n\nSaving to: "+routinesDirectory.getAbsolutePath());
+            serializer.write(sketch, new File(sketchDirectory, "testsketch.xml"));
+            serializer.write(sketch1, new File(sketchDirectory, "testsketch1.xml"));
+            serializer.write(sketch2, new File(sketchDirectory, "testsketch2.xml"));
+            Log.d("TESTESTEST","\n\n\n\nSaving to: "+sketchDirectory.getAbsolutePath());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -54,10 +59,7 @@ public class RoutineListActivity extends AppCompatActivity {
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(llm);
         // Foreach routine in directory list programs
-        RoutineRecycler adapter = new RoutineRecycler(routinesDirectory);
+        RoutineRecycler adapter = new RoutineRecycler(sketchDirectory);
         recyclerView.setAdapter(adapter);
-
     }
-
-
 }

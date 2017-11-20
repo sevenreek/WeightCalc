@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.devseven.gympack.setlogger.ExerciseDay;
+import com.devseven.gympack.materialsetlogger.data.ExerciseDay;
 
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
