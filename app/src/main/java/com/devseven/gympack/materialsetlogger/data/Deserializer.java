@@ -6,6 +6,7 @@ import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 
 import java.io.File;
+import java.util.List;
 
 /**
  * Created by Klejnot Nilu on 09.11.2017.
@@ -31,5 +32,17 @@ public class Deserializer {
     public Routine GetRoutine(Context context, String name) throws Exception {
         File directory = new File(context.getFilesDir(),ROUTINESDIR);
         return serializer.read(Routine.class,new File(directory, name));
+    }
+
+    public RoutineSketch[] getSketches(Context context) throws Exception {
+
+        File routineDir = new File(context.getFilesDir(), SKETCHDIR);
+        File[] flist = routineDir.listFiles();
+        RoutineSketch[] sketches = new RoutineSketch[flist.length];
+        for (int i = 0; i<flist.length; i++
+             ) {
+             sketches[i] = (serializer.read(RoutineSketch.class, flist[i]));
+        }
+        return sketches;
     }
 }

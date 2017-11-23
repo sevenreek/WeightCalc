@@ -1,6 +1,7 @@
 package com.devseven.gympack.materialsetlogger;
 
 import android.content.Intent;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.animation.RotateAnimation;
 import android.widget.Toast;
 
+import com.devseven.gympack.materialsetlogger.data.Deserializer;
 import com.devseven.gympack.materialsetlogger.data.RoutineSketch;
 import com.devseven.gympack.setlogger.R;
 
@@ -27,15 +29,17 @@ public class RoutineListActivity extends AppCompatActivity {
     private File sketchDirectory;
     private File routineDirectory;
     RecyclerView recyclerView;
+    FragmentManager fragmentManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_routine_list);
+        fragmentManager = getSupportFragmentManager();
         Intent intent = getIntent();
         if (intent != null) {
-            sketchDirectory = new File(intent.getStringExtra(SKETCH_DIR));
+
         } else if (savedInstanceState != null) {
-            sketchDirectory = new File(intent.getStringExtra(SKETCH_DIR));
+
         } else {
             // If neither intent nor savedInstanceState is present then clearly something went wrong.
             // The activity cannot progress without the arguments and will be terminated.
@@ -59,7 +63,13 @@ public class RoutineListActivity extends AppCompatActivity {
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(llm);
         // Foreach routine in directory list programs
-        RoutineRecycler adapter = new RoutineRecycler(sketchDirectory);
+        RoutineSketch[] sketches = null;
+        try {
+            sketches = Deserializer.getInstance().getSketches(RoutineListActivity.this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        RoutineRecycler adapter = new RoutineRecycler(sketches, fragmentManager);
         recyclerView.setAdapter(adapter);
     }
 }

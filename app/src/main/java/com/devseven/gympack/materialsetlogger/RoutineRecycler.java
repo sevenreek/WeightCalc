@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.TextViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -30,6 +31,7 @@ import org.simpleframework.xml.core.Persister;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -38,16 +40,19 @@ import java.util.List;
 
 public class RoutineRecycler extends RecyclerView.Adapter<RoutineRecycler.RoutineHolder> {
 
-    private ArrayList<RoutineSketch> routineList;
-
-    public RoutineRecycler(ArrayList<RoutineSketch> list)
+    private List<RoutineSketch> routineList;
+    protected static Context context;
+    protected static FragmentManager fragmentManager;
+    public RoutineRecycler(RoutineSketch[] list, FragmentManager fm)
     {
-        this.routineList = list;
+        this.routineList = Arrays.asList(list);
+        fragmentManager = fm;
     }
     // The recycler can be passed either the serialized list of sketches or a directory which it will deserialize
     // The latter is preferred to seperate activity logic from business logic
-    public RoutineRecycler(File dir)
+    /*public RoutineRecycler(File dir)
     {
+        fragmentManager = fm;
         Serializer serializer = new Persister();
         routineList =  new ArrayList<>();
         for (File file : dir.listFiles())
@@ -65,7 +70,7 @@ public class RoutineRecycler extends RecyclerView.Adapter<RoutineRecycler.Routin
             }
         }
 
-    }
+    }*/
 
     @Override
     public RoutineHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -76,13 +81,27 @@ public class RoutineRecycler extends RecyclerView.Adapter<RoutineRecycler.Routin
 
     @Override
     public void onBindViewHolder(RoutineHolder holder, int position) {
-        RoutineSketch sketch = routineList.get(position);
+        final RoutineSketch sketch = routineList.get(position);
         holder.vName.setText(sketch.getName());
         holder.vDays.setText(sketch.getDayCount()
             + (sketch.getDayCount()>1?
-                holder.context.getString(R.string.days_amount_plural):
-                holder.context.getString(R.string.days_amount_singular)));
+                context.getString(R.string.days_amount_plural):
+                context.getString(R.string.days_amount_singular)));
         holder.vDescription.setText(sketch.getDescription());
+        holder.startRoutine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // insert fragment and dim screen
+                try {
+                    RoutineHolder.DaySelector selector = RoutineHolder.DaySelector.newInstance(Deserializer.getInstance().GetRoutine(context, sketch.getName()));
+                    selector.show(fragmentManager,"dialog");
+
+                } catch (Exception e) {
+                    Toast.makeText(context, "ERROR:E000. Cannot deserialize file. Contact the developer.", Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     @Override
@@ -90,13 +109,12 @@ public class RoutineRecycler extends RecyclerView.Adapter<RoutineRecycler.Routin
         return routineList.size();
     }
     public static class RoutineHolder extends RecyclerView.ViewHolder {
-        protected static Context context;
         protected TextView vName;
         protected TextView vDays;
         protected TextView vDescription;
         protected TextView editRoutine;
         protected TextView startRoutine;
-        public RoutineHolder(View v, final int sketchPos, final String sketchName)
+        public RoutineHolder(View v)
         {
             super(v);
             if(context==null)
@@ -106,22 +124,11 @@ public class RoutineRecycler extends RecyclerView.Adapter<RoutineRecycler.Routin
             vDescription = (TextView) v.findViewById(R.id.descriptionText);
             editRoutine = (TextView) v.findViewById(R.id.editRoutine);
             startRoutine = (TextView) v.findViewById(R.id.startRoutine);
-            startRoutine.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // insert fragment and dim screen
-                    try {
-                        DaySelector selector = DaySelector.newInstance(Deserializer.getInstance().GetRoutine(context, sketchName));
-                    } catch (Exception e) {
-                        Toast.makeText(context, "ERROR:E000. Cannot deserialize file. Contact the developer.", Toast.LENGTH_SHORT).show();
-                        e.printStackTrace();
-                    }
-                }
-            });
+
         }
         public static class DayHolder
         {
-            protected static Context context;
+
             public DayHolder(View v, ExerciseDay day)
             {
                 TextView name = (TextView) v.findViewById(R.id.dayName);
