@@ -18,9 +18,10 @@ import java.util.ArrayList;
 public class ExerciseDay implements Parcelable{
     public ExerciseDay(String name)
     {
+        exerciseGroups = new ArrayList<com.devseven.gympack.materialsetlogger.data.ExerciseGroup>();
         this.name = name;
     }
-    public ExerciseDay(){}
+    public ExerciseDay(){exerciseGroups = new ArrayList<com.devseven.gympack.materialsetlogger.data.ExerciseGroup>();}
     @ElementList
     public ArrayList<com.devseven.gympack.materialsetlogger.data.ExerciseGroup> exerciseGroups;
     @Attribute

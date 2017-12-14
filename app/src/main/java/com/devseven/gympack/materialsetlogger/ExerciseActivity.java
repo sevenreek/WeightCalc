@@ -20,7 +20,7 @@ public class ExerciseActivity extends AppCompatActivity
 {
     public static final String PROGRAM_TO_PASS = "PROGRAM_TO_PASS";
     ExerciseDay day;
-    ExerciseViewsFactory viewsFactory;
+
     @Override
     public void onCreate(Bundle onSavedInstanceState)
     {
@@ -34,7 +34,7 @@ public class ExerciseActivity extends AppCompatActivity
         // If there is no intent(dunno if it is possible)
         // or the day is not passed means that the user entered
         // quick starpublic GroupView(Context context) {
-        viewsFactory = new ExerciseViewsFactory(getLayoutInflater());
+
     }
 }
 // this class may become obsolete as to use the recycler view to improve performance...

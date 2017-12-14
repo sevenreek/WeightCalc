@@ -24,7 +24,10 @@ public class Routine implements Parcelable {
     private String name;
     @Element(required = false)
     String description;
-
+    public Routine()
+    {
+        days = new ArrayList<>();
+    }
     protected Routine(Parcel in) {
         name = in.readString();
         description = in.readString();

@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.devseven.gympack.materialsetlogger.data.Deserializer;
 import com.devseven.gympack.materialsetlogger.data.ExerciseDay;
 import com.devseven.gympack.setlogger.GlobalSettings;
 import com.devseven.gympack.setlogger.R;
@@ -46,14 +47,21 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
 
 
-        // Check if all neccessary folders are made and get them.
-        final File exercises = new File(getFilesDir(), GlobalSettings.EXERCISES_STORAGE_FOLDER_NAME);
+
+        final File exercises = new File(getFilesDir(), GlobalSettings.EXERCISES_STORAGE_FOLDER_NAME);   // This checks whether all folders neccessary
+        final File sketches = new File(getFilesDir(), GlobalSettings.DIRECTORY_SKETCHES);               // to write save data files are present
+        final File logs = new File(getFilesDir(),GlobalSettings.DIRECTORY_LOGS);                        // If they are not it creates them.
+        final File routines = new File(getFilesDir(), Deserializer.ROUTINESDIR);
         if(!exercises.exists())
             exercises.mkdirs();
-        File logs = new File(getFilesDir(),GlobalSettings.DIRECTORY_LOGS);
         if(!logs.exists())
             logs.mkdirs();
-
+        if(!sketches.exists())
+            sketches.mkdirs();
+        if(!routines.exists())
+            routines.mkdirs();
+        for(File f: sketches.listFiles())
+            f.delete();
         // If the user is using an older version of android I currently cannot load ripple effects, so I load a support layout
         if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.LOLLIPOP) {
             setContentView(R.layout.main_menu_material);

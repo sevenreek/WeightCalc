@@ -11,6 +11,11 @@ import android.view.animation.RotateAnimation;
 import android.widget.Toast;
 
 import com.devseven.gympack.materialsetlogger.data.Deserializer;
+import com.devseven.gympack.materialsetlogger.data.Exercise;
+import com.devseven.gympack.materialsetlogger.data.ExerciseDay;
+import com.devseven.gympack.materialsetlogger.data.ExerciseGroup;
+import com.devseven.gympack.materialsetlogger.data.ExerciseSet;
+import com.devseven.gympack.materialsetlogger.data.Routine;
 import com.devseven.gympack.materialsetlogger.data.RoutineSketch;
 import com.devseven.gympack.setlogger.R;
 
@@ -21,11 +26,11 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-
+// It is possible that turning this into a fragment of MainActivity may be a good decision.
 public class RoutineListActivity extends AppCompatActivity {
 
-    public static final String SKETCH_DIR = "SKETCH_DIR";
-    public static final String ROUTINES_DIR = "ROUTINE_DIR";
+    public static final String SKETCH_DIR = "sketches";
+    public static final String ROUTINES_DIR = "routines";
     private File sketchDirectory;
     private File routineDirectory;
     RecyclerView recyclerView;
@@ -33,28 +38,42 @@ public class RoutineListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        sketchDirectory = new File(getFilesDir(), Deserializer.SKETCHDIR);
+        routineDirectory = new File(getFilesDir(), Deserializer.ROUTINESDIR);
         setContentView(R.layout.activity_routine_list);
         fragmentManager = getSupportFragmentManager();
-        Intent intent = getIntent();
-        if (intent != null) {
 
-        } else if (savedInstanceState != null) {
 
-        } else {
-            // If neither intent nor savedInstanceState is present then clearly something went wrong.
-            // The activity cannot progress without the arguments and will be terminated.
-            Toast.makeText(this, "FATAL ERROR: Cannot load intent/savedInstanceState from context. Please contact the developer with this error.", Toast.LENGTH_LONG).show();
-            finish();
-        }
+        // read xml test
         RoutineSketch sketch = new RoutineSketch("Routine 1", "Test Routine", 3);
-        RoutineSketch sketch1 = new RoutineSketch("Routine 2", "Test Routine", 3);
-        RoutineSketch sketch2 = new RoutineSketch("Routine 3", "Test Routine", 3);
+        ExerciseDay day = new ExerciseDay("test day");
+        ExerciseGroup eg = new ExerciseGroup();
+        eg.exerciseSets.add(new ExerciseSet(10,30));
+        eg.exerciseSets.add(new ExerciseSet(10,30));
+        eg.exerciseSets.add(new ExerciseSet(10,30));
+        eg.setExercise(new Exercise("Squat"));
+        day.exerciseGroups.add(eg);
+        day.exerciseGroups.add(eg);
+        Routine r1 = new Routine();
+        r1.setName(sketch.getName());
+        r1.days.add(day);
+        ExerciseDay day2 = new ExerciseDay("test day 2");
+        eg.exerciseSets.add(new ExerciseSet(10,30));
+        eg.exerciseSets.add(new ExerciseSet(10,30));
+        eg.exerciseSets.add(new ExerciseSet(10,30));
+        eg.setExercise(new Exercise("Squat"));
+        day2.exerciseGroups.add(eg);
+        day2.exerciseGroups.add(eg);
+        Routine r2 = new Routine();
+        r2.setName(sketch.getName());
+        r1.days.add(day2);
+
+
+        //TODO TEST DESERIALIZER
         Serializer serializer = new Persister();
         try {
-            serializer.write(sketch, new File(sketchDirectory, "testsketch.xml"));
-            serializer.write(sketch1, new File(sketchDirectory, "testsketch1.xml"));
-            serializer.write(sketch2, new File(sketchDirectory, "testsketch2.xml"));
-            Log.d("TESTESTEST","\n\n\n\nSaving to: "+sketchDirectory.getAbsolutePath());
+            serializer.write(sketch, new File(sketchDirectory, sketch.getName()));
+            serializer.write(r1, new File(routineDirectory, sketch.getName()));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -65,7 +84,7 @@ public class RoutineListActivity extends AppCompatActivity {
         // Foreach routine in directory list programs
         RoutineSketch[] sketches = null;
         try {
-            sketches = Deserializer.getInstance().getSketches(RoutineListActivity.this);
+            sketches = Deserializer.getInstance(this).getSketches(RoutineListActivity.this);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -93,7 +93,9 @@ public class RoutineRecycler extends RecyclerView.Adapter<RoutineRecycler.Routin
             public void onClick(View v) {
                 // insert fragment and dim screen
                 try {
-                    RoutineHolder.DaySelector selector = RoutineHolder.DaySelector.newInstance(Deserializer.getInstance().GetRoutine(context, sketch.getName()));
+                    RoutineHolder.DaySelector selector =
+                            RoutineHolder.DaySelector.newInstance(
+                                    Deserializer.getInstance(context).GetRoutine(sketch.getName()));
                     selector.show(fragmentManager,"dialog");
 
                 } catch (Exception e) {
@@ -163,9 +165,12 @@ public class RoutineRecycler extends RecyclerView.Adapter<RoutineRecycler.Routin
             public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
                 routine = getArguments().getParcelable(ROUTINE_TO_PASS);
                 View fragView = inflater.inflate(R.layout.material_day_container, container, false);
-                LinearLayout ll = (LinearLayout) fragView.findViewById(R.id.daysContainer);
+                LinearLayout ll = (LinearLayout) fragView.findViewById(R.id.dayContainer);
+                TextView routineName = (TextView) fragView.findViewById(R.id.routineName);
+                routineName.setText(routine.getName());
                 for (ExerciseDay day : routine.days
                      ) {
+                    Log.d("RoutineRecycler", "inflating view"+ day.getName());
                     View v = inflater.inflate(R.layout.material_day_view, ll, false);
                     DayHolder holder = new DayHolder(v,day);
                     ll.addView(v);

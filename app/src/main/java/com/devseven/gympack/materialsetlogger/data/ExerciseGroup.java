@@ -20,7 +20,7 @@ public class ExerciseGroup implements Parcelable {
     @ElementList
     public ArrayList<com.devseven.gympack.materialsetlogger.data.ExerciseSet> exerciseSets;
     Exercise exercise;
-    public ExerciseGroup() {}
+    public ExerciseGroup() {exerciseSets = new ArrayList<com.devseven.gympack.materialsetlogger.data.ExerciseSet>();}
 
 
     protected ExerciseGroup(Parcel in) {
@@ -63,6 +63,7 @@ public class ExerciseGroup implements Parcelable {
 
     public void setExercise(Exercise exercise) {
         this.exercise = exercise;
+        this.exerciseName = exercise.getName();
     }
 
     @Override

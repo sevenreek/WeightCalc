@@ -18,6 +18,7 @@ public class GlobalSettings {
     public static final String DIRECTORY_LOGS = "logs";
     public static final SimpleDateFormat LOGS_DATE_FORMAT = new SimpleDateFormat("yy-MM-dd");
     public static final  String EXERCISES_STORAGE_FOLDER_NAME = "exercises";
+    public static final String DIRECTORY_SKETCHES = "sketches";
     private static ExerciseDay DAY_TO_OPEN;
     private static Program PROGRAM_TO_EDIT;
     public static final String FILENAME_USERSETTINGS = "usersettings";
