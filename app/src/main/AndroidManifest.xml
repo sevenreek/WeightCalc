@@ -13,23 +13,41 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
-            android:name="com.devseven.gympack.setlogger.MainActivity"
+            android:name="com.devseven.gympack.materialsetlogger.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.devseven.gympack.setlogger.WeightCalculator" android:screenOrientation="portrait" />
-        <activity android:name="com.devseven.gympack.setlogger.ExerciseActivity" android:screenOrientation="portrait"  />
-        <activity android:name="com.devseven.gympack.setlogger.PickExerciseActivity" android:screenOrientation="portrait"  />
-        <activity android:name="com.devseven.gympack.setlogger.CreateProgramActivity" android:screenOrientation="portrait" />
-        <activity android:name="com.devseven.gympack.setlogger.LogsActivity" android:screenOrientation="portrait" />
-        <activity android:name="com.devseven.gympack.setlogger.ExercisesListActivity" android:screenOrientation="portrait" ></activity>
-        <activity android:name="com.devseven.gympack.setlogger.SettingsActivity" android:screenOrientation="portrait" ></activity>
+        <activity
+            android:name=".WeightCalculator"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.devseven.gympack.materialsetlogger.ExerciseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ExerciseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PickExerciseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CreateProgramActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LogsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ExercisesListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SettingsActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name="com.devseven.gympack.materialsetlogger.RoutineListActivity"></activity>
     </application>
 
 </manifest>

@@ -30,7 +30,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class CreateProgramActivity extends AppCompatActivity implements EditDayPageFragment.ProgramEditorInterface, LastPageFragment.LastPageListener {
-
+// test of github
+    // test2
     private static int NUM_PAGES;
     private ViewPager mPager;
     private PagerAdapter mPagerAdapter;
