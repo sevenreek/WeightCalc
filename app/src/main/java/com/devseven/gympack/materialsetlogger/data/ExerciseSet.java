@@ -13,22 +13,20 @@ import org.simpleframework.xml.Element;
 
 public class ExerciseSet implements Parcelable{
     public ExerciseSet() {}
-    public ExerciseSet(int goalReps, int restTimeInSeconds)
+    public ExerciseSet(int goalReps)
     {
         this.goalReps = goalReps;
-        this.restTimeInSeconds = restTimeInSeconds;
+
     }
     public ExerciseSet(Parcel in)
     {
-        restTimeInSeconds = in.readInt();
+
         goalReps = in.readInt();
         doneReps = in.readInt();
         usedWeight = in.readDouble();
         finished = in.readByte() != 0;
     }
 
-    @Element
-    int restTimeInSeconds;
     @Element
     int goalReps;
     @Element(required = false)
@@ -49,13 +47,7 @@ public class ExerciseSet implements Parcelable{
         }
     };
 
-    public int getRestTimeInSeconds() {
-        return restTimeInSeconds;
-    }
 
-    public void setRestTimeInSeconds(int restTimeInSeconds) {
-        this.restTimeInSeconds = restTimeInSeconds;
-    }
 
     public int getGoalReps() {
         return goalReps;
@@ -91,7 +83,7 @@ public class ExerciseSet implements Parcelable{
 
     public ExerciseSet clone()
     {
-        ExerciseSet set = new ExerciseSet(this.goalReps,this.restTimeInSeconds);
+        ExerciseSet set = new ExerciseSet(this.goalReps);
         set.doneReps = this.doneReps;
         set.usedWeight = this.usedWeight;
         return set;
@@ -104,7 +96,6 @@ public class ExerciseSet implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(restTimeInSeconds);
         dest.writeInt(goalReps);
         dest.writeInt(doneReps);
         dest.writeDouble(usedWeight);

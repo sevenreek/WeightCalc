@@ -1,23 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="fontPrimary">#212121</color>
-    <color name="fontSecondary">#757575</color>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303f9f</color>
-    <color name="colorPrimaryLight">#C5CAE9</color>
-    <color name="colorAccent">#ff5722</color>
-    <color name="iconWhite">#FFFFFF</color>
-    <color name="setOverviewGray">#F3F3F3</color>
-    <color name="fontBlack">#030303</color>
-    <color name="fontDargGrayDesc">#3f3f3f</color>
-    <color name="lightGrayBackground">#ececec</color>
-    <color name="darkGrayBackground">#e5e5e5</color>
-    <color name="darkerGrayBackground">#d1d1d1</color>
-    <color name="lightGreen">#adebad</color>
-    <color name="strongGreen">#33cc33</color>
-    <color name="mediumGrayBackground">#cccccc</color>
-    <color name="timerBlue">#000c51</color>
-    <color name="transparentOrange">#fff2e6</color>
-    <color name="highlight">#ffffff</color>
-
+    <color name="fontBlack">#212121</color>
+    <color name="darkestTheme">#005aff</color>
+    <color name="fontLight">#85b0ff</color>
+    <color name="darkTheme">#367bff</color>
+    <color name="lightTheme">#4787ff</color>
+    <color name="white">#ffffff</color>
+    <color name="accentOrange">#ffa800</color>
 </resources>

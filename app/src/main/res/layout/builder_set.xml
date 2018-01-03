@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:background="@drawable/bottom_line9"
+    android:orientation="horizontal"
+    android:paddingTop="8px"
+    tools:background="@drawable/bottom_line_long9">
+
+    <TextView
+        android:id="@+id/setIndex"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.3"
+        android:gravity="center"
+        android:text="1."
+        android:textSize="36sp" />
+
+    <Button
+        android:id="@+id/setMenu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.3"
+        android:background="@drawable/ic_list_round"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/typeTextView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.25"
+        android:gravity="center"
+        android:paddingLeft="32dp"
+        android:paddingRight="32dp"
+        android:text="REPS TO DO:"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/repCount"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.25"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="number"
+        android:text="12"
+        android:textSize="36sp"
+        tools:background="@null" />
+
+</LinearLayout>

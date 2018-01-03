@@ -22,7 +22,7 @@
     <item
         android:id="@+id/save_program"
         android:title="Save program"
-        android:icon="@drawable/ic_save_white_24px"
+
 
         app:showAsAction="always">
     </item>
