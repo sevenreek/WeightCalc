@@ -47,7 +47,6 @@
         <activity
             android:name=".SettingsActivity"
             android:screenOrientation="portrait" />
-        <activity android:name="com.devseven.gympack.materialsetlogger.RoutineListActivity" />
         <activity android:name="com.devseven.gympack.materialsetlogger.RoutineBuilderActivity"></activity>
     </application>
 

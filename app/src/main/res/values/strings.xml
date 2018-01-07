@@ -33,6 +33,11 @@
     <string name="settings_useimperial">Use imperial system(lbs)</string>
     <string name="settings_set_to_record">Set starting weight in sets to max. rep</string>
     <string name="settings_ads">Ads</string>
+    <string name="new_routine_name">New Routine</string>
+    <string name="new_day_name">Day</string>
+    <string name="new_day">New Day</string>
+    <string name="new_exercise">New Exercise</string>
+    <string name="name_new_exercise_dialog_title">Name the new exercise</string>
 
 
 </resources>

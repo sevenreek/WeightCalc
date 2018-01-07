@@ -1,6 +1,7 @@
 package com.devseven.gympack.materialsetlogger;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
@@ -8,11 +9,11 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 
 
 import com.devseven.gympack.materialsetlogger.data.Deserializer;
 import com.devseven.gympack.materialsetlogger.data.ExerciseDay;
-import com.devseven.gympack.setlogger.GlobalSettings;
 import com.devseven.gympack.setlogger.R;
 import com.google.android.gms.ads.AdView;
 
@@ -20,6 +21,13 @@ import java.io.File;
 
 public class MainActivity extends AppCompatActivity  {
 
+    // Temporary solution
+    public static class GlobalSettings
+    {
+        public final static String EXERCISES_STORAGE_FOLDER_NAME = "exercises";
+        public final static String DIRECTORY_SKETCHES = "sketches";
+        public final static String DIRECTORY_LOGS = "logs";
+    }
     AdView adView;
     ExerciseDay dayToContinue;
 
@@ -55,6 +63,14 @@ public class MainActivity extends AppCompatActivity  {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //endregion
+        View menuButton = findViewById(R.id.routinesMenu);
+        menuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, RoutineBuilderActivity.class);
+                startActivity(i);
+            }
+        });
 
 
 

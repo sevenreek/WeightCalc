@@ -13,7 +13,7 @@
     <string name="sets_amount_plural">setów</string>
     <string name="sets_amount_singular">set</string>
     <string name="start_exercise">Zacznij trening</string>
-    <string name="unfinished_sets_popup_message">Nie wszystkie sety w dzisiejszym treningu zostały ukończone. Czy na pewno chcesz go zakończyć?</string>
+    <string name="unfinished_sets_popup_message">Nie wszystkie serie w dzisiejszym treningu zostały ukończone. Czy na pewno chcesz go zakończyć?</string>
     <string name="unfinished_sets_popup_title">Zakończyć trening?</string>
     <string name="support_developer">Wesprzyj developera</string>
     <string name="start_routine">Zacznij program</string>
@@ -25,7 +25,12 @@
     <string name="interstitial_ad">Przerywnik</string>
     <string name="settings_localiation">Język</string>
     <string name="setting_default_values">Domyślne wartości</string>
-    <string name="settings_useimperial">Używaj systemy imperialnego(funty)</string>
+    <string name="settings_useimperial">Używaj systemu imperialnego(funty)</string>
     <string name="settings_set_to_record">Ustaw początkowy ciężar na rekordowy dla ćwiczenia</string>
     <string name="settings_ads">Reklamy</string>
+    <string name="new_routine_name">Nowy Program</string>
+    <string name="new_day_name">Dzień</string>
+    <string name="new_day">Nowy dzień</string>
+    <string name="new_exercise">Nowe Ćwiczenie</string>
+    <string name="name_new_exercise_dialog_title">Name the new exercise</string>
 </resources>

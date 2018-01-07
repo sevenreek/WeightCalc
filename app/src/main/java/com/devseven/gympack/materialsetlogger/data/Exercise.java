@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.devseven.gympack.setlogger.GlobalSettings;
+
 
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
