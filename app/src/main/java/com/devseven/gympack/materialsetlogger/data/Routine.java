@@ -18,6 +18,7 @@ import java.util.ArrayList;
  */
 @Root
 public class Routine implements Parcelable {
+    public static final String ROUTINE_PARCEL = "routine_parcel";
     @ElementList
     public ArrayList<ExerciseDay> days;
     @Attribute

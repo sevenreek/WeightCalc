@@ -7,4 +7,6 @@
     <color name="lightTheme">#4787ff</color>
     <color name="white">#ffffff</color>
     <color name="accentOrange">#ffa800</color>
+    <color name="fontGray">#707070</color>
+    <color name="accentRed">#bf0013</color>
 </resources>

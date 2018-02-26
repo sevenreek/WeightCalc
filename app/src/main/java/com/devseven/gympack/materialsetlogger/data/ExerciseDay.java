@@ -3,7 +3,7 @@ package com.devseven.gympack.materialsetlogger.data;
 import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
-
+import android.util.Log;
 
 
 import org.simpleframework.xml.Attribute;
@@ -18,6 +18,7 @@ import java.util.ArrayList;
 public class ExerciseDay implements Parcelable{
     public ExerciseDay(String name)
     {
+        Log.d("DEBUG1:","Proper constructor");
         exerciseGroups = new ArrayList<com.devseven.gympack.materialsetlogger.data.ExerciseGroup>();
         this.name = name;
     }
@@ -30,6 +31,7 @@ public class ExerciseDay implements Parcelable{
     private boolean usedImperial;
 
     protected ExerciseDay(Parcel in) {
+        Log.d("DEBUG1:","Incorrect constructor!");
         exerciseGroups = in.createTypedArrayList(com.devseven.gympack.materialsetlogger.data.ExerciseGroup.CREATOR);
         name = in.readString();
         usedImperial = in.readByte() != 0;

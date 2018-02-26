@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.devseven.gympack.setlogger">
+    package="com.devseven.gympack.materialsetlogger">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -23,31 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".WeightCalculator"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.devseven.gympack.materialsetlogger.ExerciseActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ExerciseActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".PickExerciseActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".CreateProgramActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".LogsActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ExercisesListActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".SettingsActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name="com.devseven.gympack.materialsetlogger.RoutineBuilderActivity"></activity>
+        <activity android:name="com.devseven.gympack.materialsetlogger.RoutineBuilderActivity" />
+        <activity android:name="com.devseven.gympack.materialsetlogger.ExercisePlayerActivity" />
     </application>
 
 </manifest>

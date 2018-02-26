@@ -25,11 +25,10 @@
     <string name="quickstart">Quickstart</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="interstitial_ad">Interstitial</string>
     <string name="banner_ad">Banner</string>
     <string name="settings_localiation">Localization</string>
-    <string name="setting_default_values">Default values</string>
+    <string name="setting_default_valuese">Default values</string>
     <string name="settings_useimperial">Use imperial system(lbs)</string>
     <string name="settings_set_to_record">Set starting weight in sets to max. rep</string>
     <string name="settings_ads">Ads</string>
@@ -37,7 +36,20 @@
     <string name="new_day_name">Day</string>
     <string name="new_day">New Day</string>
     <string name="new_exercise">New Exercise</string>
-    <string name="name_new_exercise_dialog_title">Name the new exercise</string>
+    <string name="name_new_exercise_dialog_title">Enter the exercise\'s name</string>
+    <string name="name_new_day_dialog_title">Name the new day</string>
+    <string name="cancel">CANCEL</string>
+    <string name="no_exercisegroups_to_add_set">"There are no exercises to add a set to. "</string>
+    <string name="reps_to_do">Reps to do:</string>
+    <string name="time_to_last">Time to do:</string>
+    <string name="add_exercise_hint">Exercise name...</string>
+    <string name="add_day_hint">Day name...</string>
+    <string name="add_day_first">Add a day first!</string>
+    <string name="add_exercise_first">Add an exercise first!</string>
+    <string name="no_active_routine">No active routine</string>
+    <string name="no_active_day">No active day</string>
+    <string name="exercise_name_cannot_be_empty">Exercise name cannot be empty</string>
+    <string name="day_name_cannot_be_empty">Day name cannot be empty</string>
 
 
 </resources>

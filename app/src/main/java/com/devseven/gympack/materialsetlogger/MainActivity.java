@@ -10,54 +10,74 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 
 import com.devseven.gympack.materialsetlogger.data.Deserializer;
 import com.devseven.gympack.materialsetlogger.data.ExerciseDay;
-import com.devseven.gympack.setlogger.R;
+import com.devseven.gympack.materialsetlogger.data.Routine;
 import com.google.android.gms.ads.AdView;
 
 import java.io.File;
 
 public class MainActivity extends AppCompatActivity  {
-
-    // Temporary solution
-    public static class GlobalSettings
-    {
-        public final static String EXERCISES_STORAGE_FOLDER_NAME = "exercises";
-        public final static String DIRECTORY_SKETCHES = "sketches";
-        public final static String DIRECTORY_LOGS = "logs";
-    }
+    // might wrap these in a holder like BuilderViewHolder
     AdView adView;
-    ExerciseDay dayToContinue;
-
-
+    int continuedDay;
+    Routine continuedRoutine;
+    TextView currentRoutine;
+    TextView currentDay;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final File exercises = new File(getFilesDir(), GlobalSettings.EXERCISES_STORAGE_FOLDER_NAME);   // This checks whether all folders neccessary
-        final File sketches = new File(getFilesDir(), GlobalSettings.DIRECTORY_SKETCHES);               // to write save data files are present
-        final File logs = new File(getFilesDir(),GlobalSettings.DIRECTORY_LOGS);                        // If they are not it creates them.
+        if(!PermissionGranted())
+        {
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission_group.STORAGE},requestCode);
+        }
+        final File exercises = new File(getFilesDir(), Deserializer.EXERCISESDIR);   // This checks whether all folders neccessary
+        final File sketches = new File(getFilesDir(), Deserializer.SKETCHDIR);               // to write save data files are present
+        //final File logs = new File(getFilesDir(),Deserializer.LOGSDIR);                        // If they are not it creates them.
         final File routines = new File(getFilesDir(), Deserializer.ROUTINESDIR);
         if(!exercises.exists())
             exercises.mkdirs();
-        if(!logs.exists())
-            logs.mkdirs();
+        //if(!logs.exists())
+        //    logs.mkdirs();
         if(!sketches.exists())
             sketches.mkdirs();
         if(!routines.exists())
             routines.mkdirs();
-
-        // TESTING ONLY
+        // TESTING ONLY TODO remove this.
         for(File f: sketches.listFiles())
             f.delete();
+        for(File f: exercises.listFiles())
+            f.delete();
 
-        setContentView(R.layout.main_menu);
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        setContentView(R.layout.main_menu);/// CONTENT VIEW. FINDVIEW WILL CRASH BEFORE THIS LINE //////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        currentRoutine = (TextView) findViewById(R.id.currentRoutine);
+        currentDay = (TextView) findViewById(R.id.nextDay);
 
-        // At run time the program checks for read/write permission
-        if(!PermissionGranted())
+        // load settings from file
+        try {
+            String name =  ApplicationState.getInstance(this).getCurrentRoutine();
+            continuedDay = ApplicationState.getInstance(this).getCurrentDay();
+            if(!name.isEmpty())
+                continuedRoutine = Deserializer.getInstance(this).getRoutine(name);
+            else
+                onNoContinuedRoutine();
+        } catch (Exception e) {
+            e.printStackTrace();
+            onNoContinuedRoutine();
+        }
+        if(continuedRoutine!=null)
         {
-            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission_group.STORAGE},requestCode);
+            currentRoutine.setText(continuedRoutine.getName());
+            currentDay.setText(continuedDay==-1?getString(R.string.no_active_day):continuedRoutine.days.get(continuedDay).getName());
+        }
+        else
+        {
+            onNoContinuedRoutine();
         }
         //region TOOLBAR INITIALIZATION
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -71,12 +91,24 @@ public class MainActivity extends AppCompatActivity  {
                 startActivity(i);
             }
         });
+        View continueButton = findViewById(R.id.continueButton);
+        continueButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, ExercisePlayerActivity.class);
+                startActivity(i);
+            }
+        });
 
 
 
 
     }
-
+    private void onNoContinuedRoutine()
+    {
+        currentRoutine.setText(getString(R.string.no_active_routine));
+        currentDay.setText(getString(R.string.no_active_day));
+    }
     @Override
     public void onResume()
     {

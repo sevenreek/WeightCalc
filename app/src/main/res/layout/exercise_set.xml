@@ -12,30 +12,18 @@
         android:id="@+id/setIndex"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.35"
+        android:layout_weight="0.3"
         android:gravity="center"
         android:text="1."
         android:textColor="@color/fontGray"
-        android:textSize="36sp" />
-
-    <TextView
-        android:id="@+id/typeTextView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.28"
-        android:gravity="center"
-
-        android:text="REPS TO DO:"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textColor="@color/fontGray"
-        android:textSize="18sp" />
+        android:textSize="36sp"
+        tools:layout_weight="1.1" />
 
     <EditText
         android:id="@+id/repCount"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.3"
+        android:layout_weight="0.25"
         android:ems="10"
         android:gravity="center"
         android:inputType="number"
@@ -43,17 +31,49 @@
         android:text="12"
         android:textColor="@color/fontGray"
         android:textSize="32sp"
-        tools:background="@android:color/transparent" />
+        tools:background="?selectableItemBackground"
+        tools:layout_weight="1" />
+
+    <EditText
+        android:id="@+id/repToDoCount"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.3"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="number"
+        android:selectAllOnFocus="true"
+        android:text="/12"
+        android:textColor="@color/fontGray"
+        android:textSize="24sp"
+        tools:background="@android:color/transparent"
+        tools:layout_weight="1.1" />
+
+    <TextView
+        android:id="@+id/weightUsed"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.3"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="number"
+        android:selectAllOnFocus="true"
+        android:text="100kg"
+        android:textColor="@color/fontGray"
+        android:textSize="30sp"
+        tools:background="?selectableItemBackground"
+        tools:layout_weight="0.9" />
 
     <ImageButton
         android:id="@+id/setMenu"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.35"
+        android:layout_weight="0.3"
         android:background="?selectableItemBackground"
         android:gravity="center"
         android:padding="8dp"
         android:tint="@color/fontGray"
-        app:srcCompat="@drawable/ic_delete" />
+        app:srcCompat="@drawable/ic_delete"
+        tools:layout_weight="1.1" />
 
 </LinearLayout>
