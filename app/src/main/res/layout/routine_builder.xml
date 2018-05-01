@@ -66,7 +66,7 @@
             android:layout_weight="0.7"
             android:gravity="center"
             android:text="DAY 2"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/nextDay"
@@ -115,14 +115,14 @@
                 android:id="@+id/prevExerciseButton"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="24dp"
                 app:srcCompat="@drawable/ic_chevron_left_white" />
 
             <TextView
                 android:id="@+id/prevExercise"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="BENCH PRESS"
+                android:text="BENCH PRESS TITS"
                 android:textAlignment="center"
                 android:textAllCaps="true"
                 android:textColor="@color/white" />
@@ -168,7 +168,7 @@
                 android:id="@+id/nextExerciseButton"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="24dp"
                 app:srcCompat="@drawable/ic_chevron_right_white" />
 
             <TextView

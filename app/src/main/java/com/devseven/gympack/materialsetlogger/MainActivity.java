@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 
 import com.devseven.gympack.materialsetlogger.data.Deserializer;
-import com.devseven.gympack.materialsetlogger.data.ExerciseDay;
 import com.devseven.gympack.materialsetlogger.data.Routine;
 import com.google.android.gms.ads.AdView;
 
@@ -30,26 +29,25 @@ public class MainActivity extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(!PermissionGranted())
+        if(!areIOPermissionsGranted())
         {
             ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission_group.STORAGE},requestCode);
         }
-        final File exercises = new File(getFilesDir(), Deserializer.EXERCISESDIR);   // This checks whether all folders neccessary
+        final File exercises = new File(getFilesDir(), Deserializer.EXERCISESDIR);           // This checks whether all folders neccessary
         final File sketches = new File(getFilesDir(), Deserializer.SKETCHDIR);               // to write save data files are present
-        //final File logs = new File(getFilesDir(),Deserializer.LOGSDIR);                        // If they are not it creates them.
+                   // If they are not it creates them.
         final File routines = new File(getFilesDir(), Deserializer.ROUTINESDIR);
         if(!exercises.exists())
-            exercises.mkdirs();
-        //if(!logs.exists())
-        //    logs.mkdirs();
+
         if(!sketches.exists())
             sketches.mkdirs();
         if(!routines.exists())
             routines.mkdirs();
-        // TESTING ONLY TODO remove this.
-        for(File f: sketches.listFiles())
-            f.delete();
-        for(File f: exercises.listFiles())
+
+
+        for(File f: sketches.listFiles())   // For testing purposes, I remove all files that were logged in the previous
+            f.delete();                     // session.
+        for(File f: exercises.listFiles())  // TODO Eventually remove the code resposible for delete all files when testing is finished.
             f.delete();
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -115,7 +113,12 @@ public class MainActivity extends AppCompatActivity  {
         super.onResume();
 
     }
-    public boolean PermissionGranted() {
+
+    public boolean areIOPermissionsGranted() {
+        /** The function areIOPermissionsGranted() returns true if the user has already granted all the permissions necessary for
+         *  the proper operation of the application, i.e. read/write files to external and internal storage. The application stores
+         *  routine files, logs and exercise data.
+         */
         int permission_write_external = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         int permission_read_external = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
         int permission_storage = ContextCompat.checkSelfPermission(this, Manifest.permission_group.STORAGE);
@@ -137,5 +140,5 @@ public class MainActivity extends AppCompatActivity  {
         }
 
     }
-    int requestCode = 100;
+    int requestCode = 100; // I don't actaully remember what this was for...
 }

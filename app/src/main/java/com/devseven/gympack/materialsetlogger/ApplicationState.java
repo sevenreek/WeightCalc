@@ -17,6 +17,7 @@ import java.util.Arrays;
  */
 @Root
 public class ApplicationState {
+    public final static String DAY_TO_PASS = "PASSDAYBUNDLE";
     private static ApplicationState _instance;
     private ArrayList<Exercise> exercises;
     public static ApplicationState getInstance(Context context) {

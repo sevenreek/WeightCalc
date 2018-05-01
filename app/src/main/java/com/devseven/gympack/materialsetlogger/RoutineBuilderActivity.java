@@ -39,7 +39,13 @@ import com.devseven.gympack.materialsetlogger.design.SimpleDividerLine;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-
+/// This activity manages the builder. In here user will build the routine for later use in player.
+/// I currently am on the verge whether to move the day tabstrip to TabView so that the user can scroll the days.
+/// On top of that I still have TODO implement swipe in RoutineBuilderActivity.
+/// The current idea is to have it swipe exercisegroups until the user reaches the end. Then swipe to the next day.
+/// This is to be implemented and tested against real users. I feel it might be slightly confusing sometimes.
+/// It's surely important to give user a visible feedback when day swipe happens so that they do not think they are
+/// still editing the previous day.
 public class RoutineBuilderActivity extends AppCompatActivity {
 
     private Routine routine;
@@ -53,6 +59,10 @@ public class RoutineBuilderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.routine_builder);
         BVH = new BuilderViewHolder(this);
+
+        // prev/next Day/Exercise Button moves the user to the previous/next Day/Exercise.
+        // Because the button themselves where slightly small, I opted to also add click listeners
+        // to
 
         // region LISTENERS
         BVH.prevDayButton.setOnClickListener(new View.OnClickListener() {
@@ -362,7 +372,9 @@ public class RoutineBuilderActivity extends AppCompatActivity {
 
 
     }
-    // If I ever feel like coming back to it I will actually develop the mock slide animation here. Right now changing days/exercises fades out all textviews as they change data.
+    // If I ever feel like coming back to it I will actually develop the mock slide animation here.
+    // Right now changing days/exercises fades out all textviews as they change data.
+    // I might also just move to a tabView in regards to the day list.
     void blinkAndFadeIn(final View v, int duration)
     {
         v.setAlpha(0);
@@ -373,6 +385,9 @@ public class RoutineBuilderActivity extends AppCompatActivity {
     }
 
     // endregion
+    /// This class holds all references to the views in this activity.
+    /// Honestly I am not sure why I did it this way. It simplifies passing views between different functions
+    /// but I believe it is completely unnecessary.
     protected class BuilderViewHolder
     {
         private Activity act;
@@ -431,7 +446,8 @@ public class RoutineBuilderActivity extends AppCompatActivity {
 
 
     }
-    // This class holds infromation about views for the recycler view. The recycler view implementation might not have been neccessary here but I decided to do it to learn how to.
+    // This class holds information about views for the recycler view.
+    // The recycler view implementation might not have been necessary here but I decided to do it to learn how to.
     protected class SetHolder extends RecyclerView.ViewHolder
     {
         TextView index;
