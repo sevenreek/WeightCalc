@@ -43,7 +43,7 @@ import java.util.Set;
 /// I currently am on the verge whether to move the day tabstrip to TabView so that the user can scroll the days.
 /// On top of that I still have TODO implement swipe in RoutineBuilderActivity.
 /// The current idea is to have it swipe exercisegroups until the user reaches the end. Then swipe to the next day.
-/// This is to be implemented and tested against real users. I feel it might be slightly confusing sometimes.
+/// This is to be implemented and tested with real users. I feel it might be slightly confusing sometimes.
 /// It's surely important to give user a visible feedback when day swipe happens so that they do not think they are
 /// still editing the previous day.
 public class RoutineBuilderActivity extends AppCompatActivity {
@@ -268,10 +268,11 @@ public class RoutineBuilderActivity extends AppCompatActivity {
                 }
 
                 ExerciseGroup group;
-                group = new ExerciseGroup(et.getText().toString(),ApplicationState.getInstance(ctx).getExerciseList(), ctx);
-                day.exerciseGroups.add(group);
-                onSelectExercise(exerciseIndex+1,dayIndex,routine,BVH);
-                alertDialog.dismiss();
+                throw new UnsupportedOperationException();
+                //group = new ExerciseGroup(et.getText().toString(),ApplicationState.getInstance(ctx).getExerciseList(), ctx); // TODO fix shitty singleton
+                //day.exerciseGroups.add(group);
+                //onSelectExercise(exerciseIndex+1,dayIndex,routine,BVH);
+                //alertDialog.dismiss();
             }
         });
     }
@@ -326,7 +327,7 @@ public class RoutineBuilderActivity extends AppCompatActivity {
 
         ExerciseDay day = r.days.get(currentDayIndex);
         int exerciseCount = day.exerciseGroups.size();
-        if(exerciseIndex==-1 || exerciseCount == 0) // the second one is just for safety. I dont think it will be ever checked against
+        if(exerciseIndex==-1 || exerciseCount == 0) // the second one is just for safety. I don't think it will be ever checked against
         {
             onRemovedAllGroups(BVH);
             BVH.clearAdapterData();
@@ -366,7 +367,8 @@ public class RoutineBuilderActivity extends AppCompatActivity {
         if(group.exerciseSets.size()>0)
             e = new ExerciseSet(group.exerciseSets.get(group.exerciseSets.size()-1).getGoalReps());
         else
-            e = new ExerciseSet(ApplicationState.getInstance(context).getDefaultSetReps());
+            throw new UnsupportedOperationException();
+            // e = new ExerciseSet(ApplicationState.getInstance(context).getDefaultSetReps()); // TODO cope with the removal of the shitty singleton
         group.exerciseSets.add(e);
         BVH.onAddSet(group.exerciseSets.size()-1);
 

@@ -7,7 +7,7 @@
     <string name="exercises_amount_plural">ćwiczeń</string>
     <string name="exercises_amount_singular">ćwiczenie</string>
     <string name="menu_calculator"></string>
-    <string name="menu_createprogram">Programy</string>
+    <string name="routines">Programy</string>
     <string name="no_exercises_added_to_day">Dodaj ćwiczenie</string>
     <string name="rest_finished_toast">Koniec przerwy!</string>
     <string name="sets_amount_plural">setów</string>
@@ -46,6 +46,7 @@
     <string name="no_active_day">Brak aktywnego dnia</string>
     <string name="exercise_name_cannot_be_empty">Nazwa ćwiczenia nie może być pusta.</string>
     <string name="day_name_cannot_be_empty">Nazwa dnia nie może być pusta.</string>
+    <string name="home">Start</string>
 
 
 </resources>

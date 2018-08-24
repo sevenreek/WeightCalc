@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/edit_rest" android:title="Edit Rest Time"></item>
-    <item android:id="@+id/edit_repsToDo" android:title="Edit Reps To Do"></item>
-    <item android:id="@+id/delete_set" android:title="Delete Set"></item>
-</menu>

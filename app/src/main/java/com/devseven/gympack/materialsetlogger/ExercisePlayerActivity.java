@@ -35,14 +35,8 @@ public class ExercisePlayerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // The day should get passed in parcelable from a fragment or an activity that lists.
-        // I do not think it should ever be possible to not pass one but just in case I do null checking.
-        day = savedInstanceState.getParcelable(ApplicationState.DAY_TO_PASS);
-        if(day == null)
-        {
-            Toast.makeText(this, "ERROR: Failed to load day. This should not occur. Please contact the developer.", Toast.LENGTH_SHORT).show();
-            this.finish();
-        }
+
+
         setContentView(R.layout.activity_exercise_player);
         topContainer = findViewById(R.id.topBarContainer);
         timerBar = (ProgressBar) findViewById(R.id.timerBar);
@@ -52,14 +46,12 @@ public class ExercisePlayerActivity extends AppCompatActivity {
         nextExercise = (TextView) findViewById(R.id.nextExercise);
         prevExerciseButton = findViewById(R.id.prevExerciseButton);
         nextExerciseButton = findViewById(R.id.nextExerciseButton);
-        //CountDownTimer t = startTimer(10,(TextView) findViewById(R.id.progressText),timerBar);
         startTimerAnimation(10,(TextView) findViewById(R.id.progressText),timerBar);
-
     }
-    private CountDownTimer startTimerAnimation(final long timeInSeconds, final TextView tv, final ProgressBar progressBar)
+    private CountDownTimer startTimerAnimation(long timeInSeconds, final TextView tv, ProgressBar progressBar)
     {
 
-        final CountDownTimer timer = new CountDownTimer(timeInSeconds*1000,100) {
+         CountDownTimer timer = new CountDownTimer(timeInSeconds*1000,100) {
             int timerInSeconds;
             int minutes;
             int seconds;

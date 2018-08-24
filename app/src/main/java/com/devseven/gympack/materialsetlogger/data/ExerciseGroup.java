@@ -1,12 +1,9 @@
 package com.devseven.gympack.materialsetlogger.data;
 
 import android.content.Context;
-import android.media.audiofx.BassBoost;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
-
-import com.devseven.gympack.materialsetlogger.ApplicationState;
 
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.ElementList;
@@ -23,17 +20,8 @@ public class ExerciseGroup implements Parcelable {
     @ElementList
     public ArrayList<com.devseven.gympack.materialsetlogger.data.ExerciseSet> exerciseSets;
     Exercise exercise;
-    public ExerciseGroup(String exerciseName, ArrayList<Exercise> exerciseList, Context context)
+    public ExerciseGroup(String exerciseName, Context context)
     {
-        for (Exercise e: ApplicationState.getInstance(context).getExerciseList())
-        {
-            if(e.getName() == exerciseName)
-            {
-                exercise = e;
-                this.exerciseName = exerciseName;
-                break;
-            }
-        }
         if(exercise == null) {
             Log.d("DEBUG3:","FAILURE: CREATING NEW EXERCISE WITH NAME: "+exerciseName);
             exercise = new Exercise(exerciseName);// TODO IMPORTANT: serialize the new exercise and add to appstate

@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:itemBackground="@color/darkestTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/main_menu_tabs" />
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -13,8 +22,6 @@
         android:layout_height="wrap_content"
         android:background="@color/darkestTheme"
         android:elevation="4dp"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -25,96 +32,30 @@
         tools:layout_conversion_absoluteY="0dp" />
 
 
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
+    <ScrollView
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="8dp"
-        android:foregroundGravity="bottom"
-        ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_conversion_absoluteHeight="50dp"
-        tools:layout_conversion_absoluteWidth="384dp"
-        tools:layout_conversion_absoluteX="0dp"
-        tools:layout_conversion_absoluteY="509dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        ads:layout_constraintBottom_toTopOf="@+id/adView"
-        ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintTop_toBottomOf="@+id/tabBackground">
 
-    </android.support.v4.view.ViewPager>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintVertical_bias="0.186">
 
-    <ImageView
-        android:id="@+id/tabBackground"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintTop_toBottomOf="@+id/toolbar"
-        ads:srcCompat="@color/white" />
-
-    <ImageButton
-        android:id="@+id/prevTab"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:background="@null"
-        ads:layout_constraintBottom_toBottomOf="@+id/tabBackground"
-        ads:layout_constraintStart_toStartOf="@+id/tabBackground"
-        ads:layout_constraintTop_toTopOf="@+id/tabBackground"
-        ads:srcCompat="@drawable/ic_chevron_left" />
-
-    <ImageButton
-        android:id="@+id/nextTab"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:background="@null"
-        ads:layout_constraintBottom_toBottomOf="@+id/tabBackground"
-        ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintTop_toTopOf="@+id/tabBackground"
-        ads:srcCompat="@drawable/ic_chevron_right" />
-
-    <TextView
-        android:id="@+id/nextTabText"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:gravity="right|center_vertical"
-        android:text="TextView"
-        ads:layout_constraintBottom_toBottomOf="@+id/tabBackground"
-        ads:layout_constraintEnd_toStartOf="@+id/nextTab"
-        ads:layout_constraintTop_toTopOf="@+id/tabBackground" />
-
-    <TextView
-        android:id="@+id/prevTabText"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:gravity="left|center_vertical"
-        android:text="TextView"
-        ads:layout_constraintBottom_toBottomOf="@+id/tabBackground"
-        ads:layout_constraintStart_toEndOf="@+id/prevTab"
-        ads:layout_constraintTop_toTopOf="@+id/tabBackground"
-        ads:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/currentTabText"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
-        android:textSize="24sp"
-        ads:layout_constraintBottom_toBottomOf="@+id/tabBackground"
-        ads:layout_constraintEnd_toStartOf="@+id/nextTabText"
-        ads:layout_constraintStart_toEndOf="@+id/prevTabText"
-        ads:layout_constraintTop_toTopOf="@+id/tabBackground"
-        ads:layout_constraintVertical_bias="0.0" />
+        </android.support.v4.view.ViewPager>
+    </ScrollView>
 
 
 </android.support.constraint.ConstraintLayout>

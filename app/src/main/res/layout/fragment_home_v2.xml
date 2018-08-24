@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/homeListContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/homeContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/darkestTheme"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingBottom="8dp"
+            android:paddingLeft="8dp"
+            android:paddingTop="8dp">
+
+            <TextView
+                android:id="@+id/currentRoutineLabelTextView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CURRENT ROUTINE:"
+                android:textAllCaps="true"
+                android:textColor="@color/fontLight" />
+
+            <TextView
+                android:id="@+id/currentRoutine3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="STRONGLIFTS"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CURRENT DAY:"
+                android:textAllCaps="true"
+                android:textColor="@color/fontLight" />
+
+            <TextView
+                android:id="@+id/currentDay3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DAY 3 - LEGS"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/startExerciseButtonContainer"
+            android:layout_width="96dp"
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                android:id="@+id/currentExerciseProgressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="108dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:max="100"
+
+                android:padding="-8dp"
+                android:progress="75"
+                android:progressDrawable="@drawable/circular_progress_bar" />
+
+            <Button
+                android:id="@+id/goButton"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center"
+                android:background="@drawable/white_disk"
+                android:text="GO!"
+                android:textColor="@color/accentOrange"
+                android:textSize="32dp" />
+
+        </FrameLayout>
+    </LinearLayout>
+
+</LinearLayout>
