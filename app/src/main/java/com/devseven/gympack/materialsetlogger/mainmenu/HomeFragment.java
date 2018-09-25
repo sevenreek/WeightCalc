@@ -3,6 +3,7 @@ package com.devseven.gympack.materialsetlogger.mainmenu;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MarginLayoutParamsCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -25,7 +26,7 @@ import com.devseven.gympack.materialsetlogger.data.ExerciseDay;
  * provide information such as: completion percentage, exercises to do and perhaps the last exercise done.
  */
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements MainFragmentScrollInterface{
 
     private HomeFragmentInteractionListener mListener;
 
@@ -33,21 +34,10 @@ public class HomeFragment extends Fragment {
         // Required empty public constructor
     }
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-    }
-
     public static HomeFragment newInstance(Bundle b) {
         HomeFragment fragment = new HomeFragment();
         fragment.setArguments(b);
         return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
     }
 
     @Override
@@ -77,6 +67,17 @@ public class HomeFragment extends Fragment {
         mListener = null;
     }
 
+    @Override
+    public void onFragmentEnter() {
+        FloatingActionButton fab = mListener.getFloatingActionButton();
+        fab.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onFragmentExit() {
+
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -87,7 +88,7 @@ public class HomeFragment extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface HomeFragmentInteractionListener {
+    public interface HomeFragmentInteractionListener extends MainMenuFragmentListener {
         // TODO: Update argument type and name
         void onNextDayStarted();
         void onNextDayChanged(int dayIndex);

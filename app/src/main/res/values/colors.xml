@@ -9,4 +9,7 @@
     <color name="accentOrange">#ffa800</color>
     <color name="fontGray">#707070</color>
     <color name="accentRed">#bf0013</color>
+    <color name="transparent_black_20percent">#37000000</color>
+    <color name="transparent_black_10percent">#19000000</color>
+    <color name="transparent_black_5percent">#0c000000</color>
 </resources>

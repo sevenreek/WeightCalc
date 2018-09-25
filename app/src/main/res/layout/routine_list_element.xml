@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/listElementContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:background="@color/transparent_black_5percent">
+
+    <TextView
+        android:id="@+id/routineNameText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAllCaps="true"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/editRoutineButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:drawableLeft="@drawable/ic_drop_down_black"/>
+
+    <ImageView
+        android:id="@+id/editRoutineButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tint="@color/fontGray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/routineNameText"
+        app:srcCompat="@drawable/ic_edit_white" />
+
+    <LinearLayout
+        android:id="@+id/expandedDayList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/routineNameText"></LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

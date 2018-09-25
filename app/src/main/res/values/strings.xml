@@ -54,5 +54,11 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="home">Home</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="save_routine">Save Routine</string>
+    <string name="toast_saving_failed">Save failed! Check storage permissions.</string>
+    <string name="routinelist_populate_error">No routine file found. Check permissions.</string>
+
 
 </resources>

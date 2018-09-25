@@ -19,16 +19,13 @@ public class ExerciseGroup implements Parcelable {
     private String exerciseName;
     @ElementList
     public ArrayList<com.devseven.gympack.materialsetlogger.data.ExerciseSet> exerciseSets;
-    Exercise exercise;
-    public ExerciseGroup(String exerciseName, Context context)
-    {
-        if(exercise == null) {
-            Log.d("DEBUG3:","FAILURE: CREATING NEW EXERCISE WITH NAME: "+exerciseName);
-            exercise = new Exercise(exerciseName);// TODO IMPORTANT: serialize the new exercise and add to appstate
-            this.exerciseName = exerciseName;
+    private Exercise exercise;
+    public ExerciseGroup()
+    {}
 
-        }
-        Log.d("DEBUG3:","FAILURE: CONFIRMING NAME: "+exercise.getName());
+    public ExerciseGroup(String exerciseName)
+    {
+        this.exerciseName = exerciseName;
         exerciseSets = new ArrayList<com.devseven.gympack.materialsetlogger.data.ExerciseSet>();
     }
 

@@ -12,6 +12,7 @@ import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Dickbutt on 08.06.2017.
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 public class Routine implements Parcelable {
     public static final String ROUTINE_PARCEL = "routine_parcel";
     @ElementList
-    public ArrayList<ExerciseDay> days;
+    public List<ExerciseDay> days;
     @Attribute
     private String name;
     @Element(required = false)
@@ -33,9 +34,24 @@ public class Routine implements Parcelable {
     {
         days = new ArrayList<>(); this.name = name;
     }
+
+
     protected Routine(Parcel in) {
+        days = in.createTypedArrayList(ExerciseDay.CREATOR);
         name = in.readString();
         description = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeTypedList(days);
+        dest.writeString(name);
+        dest.writeString(description);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     public static final Creator<Routine> CREATOR = new Creator<Routine>() {
@@ -50,11 +66,11 @@ public class Routine implements Parcelable {
         }
     };
 
-    public ArrayList<ExerciseDay> getDays() {
+    public List<ExerciseDay> getDays() {
         return days;
     }
 
-    public void setDays(ArrayList<ExerciseDay> days) {
+    public void setDays(List<ExerciseDay> days) {
         this.days = days;
     }
 
@@ -74,14 +90,5 @@ public class Routine implements Parcelable {
         this.description = description;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(name);
-        dest.writeString(description);
-    }
 }
